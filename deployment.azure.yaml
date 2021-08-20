@@ -6,15 +6,15 @@ spec:
   selector: 
     matchLabels: 
       app: angular 
-  replicas: 5 # tells deployment to run 2 pods matching the template 
+  replicas: 2 # tells deployment to run 2 pods matching the template 
   template:
     metadata: 
       labels: 
-        app: angular 
+        app: angular-app
     spec: 
       containers: 
-      - name: angular 
-        image: acrtestp8.azurecr.io/aspdotnet-application:latest
+      - name: angular-app 
+        image: acrtestp8.azurecr.io/angular-application:latest
         ports: 
         - containerPort: 80 
 --- 
@@ -25,7 +25,7 @@ metadata:
   name: angular-service 
 spec: 
   selector: 
-    app: angular 
+    app: angular-app
   ports: 
   - protocol: TCP 
     port: 80 
